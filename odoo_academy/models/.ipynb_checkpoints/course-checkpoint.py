@@ -38,3 +38,4 @@ class Course(models.Model):
             if record.additional_fee < 10.00:
                 raise ValidationError('El precio adicional no puede ser menor que 10.00: %s' % record.additional_fee)
             
+            
