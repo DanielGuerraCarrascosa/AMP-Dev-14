@@ -5,13 +5,12 @@ from odoo.http import request
 
 class Resetear(http.Controller):
     @http.route('/resetear', auth='public', website=True)
-    def resetear_password(self, **kw):
+    def resetear(self, **kw):
         
-        resetear_password = http.request.env['res.partner'].search([('email', '=', 'd.guerra@ampsoftware.com')])
+        """resetear = http.request.env['res.partner'].search([('email', '=', 'd.guerra@ampsoftware.com')])"""
         
-        return resetear_password
     
-        """return "Recibo correo: " + request.params['email']"""
+        return "Recibo correo: " + request.params['email']
         
         
         """
