@@ -18,7 +18,6 @@
     'depends': ['website'],
     
     'data': [
-        'views/resetear_views.xml',
     ],
     
     'demo': [
