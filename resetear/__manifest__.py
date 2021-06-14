@@ -19,7 +19,9 @@
         'website',
         'base_setup',
         'mail',
-        'web',],
+        'web',
+        'base',
+    ],
     
     'data': [
     ],

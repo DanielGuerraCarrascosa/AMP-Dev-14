@@ -7,6 +7,14 @@ class Resetear(http.Controller):
     @http.route('/resetear', auth='public', website=True)
     def resetear_password(self, **kw):
         
+        resetear_password = http.request.env['res.partner'].search([('email', '=', 'd.guerra@ampsoftware.com')])
+        
+        return resetear_password
+    
+        """return "Recibo correo: " + request.params['email']"""
+        
+        
+        """
         create_mode = bool(self.env.context.get('create_user'))
         
         expiration = False if create_mode else now(days=+1)
@@ -43,5 +51,7 @@ class Resetear(http.Controller):
                 template.send_mail(user.id, force_send=force_send, raise_exception=True)
             _logger.info("Password reset email sent for user <%s> to <%s>", user.login,user.email)
             
-        return "Recibo correo: " + request.params['email']
+            
+            """
+        
     
