@@ -15,7 +15,11 @@
     
     'version': '0.1',
     
-    'depends': ['website'],
+    'depends': [
+        'website',
+        'base_setup',
+        'mail',
+        'web',],
     
     'data': [
     ],
