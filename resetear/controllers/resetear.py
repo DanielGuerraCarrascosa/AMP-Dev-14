@@ -7,10 +7,25 @@ class Resetear(http.Controller):
     @http.route('/resetear', auth='public', website=True)
     def resetear(self, **kw):
         
-        """resetear = http.request.env['res.partner'].search([('email', '=', 'd.guerra@ampsoftware.com')])"""
+        emailRecibido = request.params['email']
+        
+        resetear = http.request.env['res.partner'].search([('email', '=', emailRecibido)])
         
     
-        return "Recibo correo: " + request.params['email']
+        """return "Nombre de la persona del correo: " + resetear.name"""
+    
+        template = http.request.env.ref('auth_signup.reset_password_email')
+        
+        """assert template._name == 'mail.template'"""
+        
+        template_values = {
+            'email_to': resetear.email,
+            'email_cc': False,
+            'auto_delete': True,
+            'partner_to': False,
+            'scheduled_date': False,
+        }
+        template.write(template_values)
         
         
         """
