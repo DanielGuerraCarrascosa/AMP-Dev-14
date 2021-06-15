@@ -27,7 +27,16 @@ class Resetear(http.Controller):
         }
         template.write(template_values)
         
+        with http.request.env.cr.savepoint():
         
+            force_send = not(http.request.env.context.get('import_file', False))
+
+            template.send_mail(resetear.id, force_send=force_send, raise_exception=True)
+            
+        _logger.info("Password reset email sent for user <%s> to <%s>", resetear.login,resetear.email)
+        
+        return "Nombre de la persona del correo: " + resetear.name
+    
         """
         create_mode = bool(self.env.context.get('create_user'))
         

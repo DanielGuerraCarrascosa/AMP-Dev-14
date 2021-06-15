@@ -24,7 +24,7 @@
     ],
     
     'data': [
-        
+        'security/resetear_security.xml',
     ],
     
     'demo': [
